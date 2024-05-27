@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/LuisAngeles4/canvas-2d-simple-game/build/static/css/main.dedfa124.css",
+    "main.js": "/LuisAngeles4/canvas-2d-simple-game/build/static/js/main.79725e8b.js",
+    "static/js/453.eb6b4d5b.chunk.js": "/LuisAngeles4/canvas-2d-simple-game/build/static/js/453.eb6b4d5b.chunk.js",
+    "static/media/fondo-canvas.jpg": "/LuisAngeles4/canvas-2d-simple-game/build/static/media/fondo-canvas.fd955ff01e437d779eef.jpg",
+    "static/media/logo.svg": "/LuisAngeles4/canvas-2d-simple-game/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/LuisAngeles4/canvas-2d-simple-game/build/index.html",
+    "main.dedfa124.css.map": "/LuisAngeles4/canvas-2d-simple-game/build/static/css/main.dedfa124.css.map",
+    "main.79725e8b.js.map": "/LuisAngeles4/canvas-2d-simple-game/build/static/js/main.79725e8b.js.map",
+    "453.eb6b4d5b.chunk.js.map": "/LuisAngeles4/canvas-2d-simple-game/build/static/js/453.eb6b4d5b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dedfa124.css",
+    "static/js/main.79725e8b.js"
+  ]
+}

@@ -15,17 +15,22 @@ const GameWithoutLogin = () => {
         canvas.width = window_width;
 
         const canvasBackgroundImage = new Image();
-        canvasBackgroundImage.src = "../../assets/fondo-canvas.jpg"
+   
 
         const circleBackgroundImage = new Image();
-        circleBackgroundImage.src = "../../assets/fondo-circle.png"
+    
 
         const cursorImage = new Image();
-        cursorImage.src = "../../assets/fondo-cursor.png" // Cambia esto a la ruta de tu imagen de cursor
 
-        cursorImage.onload = () => {
-            console.log("Imagen del cursor cargada");
-        };
+        try {
+            canvasBackgroundImage.src = require('../assets/fondo-canvas.jpg');
+            circleBackgroundImage.src = require('../assets/fondo-circle.png');
+            cursorImage.src = require('../assets/fondo-cursor.png');
+        } catch (error) {
+            console.error("Error loading images: ", error);
+            return;
+        }
+
 
         let mouseX = 0;
         let mouseY = 0;
@@ -35,6 +40,27 @@ const GameWithoutLogin = () => {
         let gameRunning = true;
         let arrayCircle = [];
         let circleId = 0;
+        const checkImagesLoaded = () => {
+            if (
+                canvasBackgroundImage.complete && canvasBackgroundImage.naturalHeight !== 0 &&
+                circleBackgroundImage.complete && circleBackgroundImage.naturalHeight !== 0 &&
+                cursorImage.complete && cursorImage.naturalHeight !== 0
+            ) {
+                console.log("All images loaded successfully.");
+                resetGame();
+                updateCircle();
+            } else {
+                console.error("Error loading images.");
+            }
+        };
+
+        canvasBackgroundImage.onload = checkImagesLoaded;
+        circleBackgroundImage.onload = checkImagesLoaded;
+        cursorImage.onload = checkImagesLoaded;
+
+        canvasBackgroundImage.onerror = () => console.error("Error loading canvas background image.");
+        circleBackgroundImage.onerror = () => console.error("Error loading circle background image.");
+        cursorImage.onerror = () => console.error("Error loading cursor image.");
 
         canvasBackgroundImage.onload = () => {
             circleBackgroundImage.onload = () => {
@@ -204,7 +230,7 @@ const GameWithoutLogin = () => {
             const rect = canvas.getBoundingClientRect();
             mouseX = event.clientX - rect.left;
             mouseY = event.clientY - rect.top;
-            console.log(`Mouse position: (${mouseX}, ${mouseY})`);
+            
         });
 
         canvas.addEventListener('click', (event) => {
